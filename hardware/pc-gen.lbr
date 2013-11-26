@@ -65,6 +65,29 @@
 <wire x1="0" y1="6" x2="0" y2="-6" width="0.127" layer="49"/>
 <wire x1="0" y1="-6" x2="12" y2="-6" width="0.127" layer="49"/>
 </package>
+<package name="DIL14">
+<pad name="1" x="-7.62" y="-3.81" drill="0.8" shape="square"/>
+<pad name="2" x="-5.08" y="-3.81" drill="0.8" rot="R270"/>
+<pad name="3" x="-2.54" y="-3.81" drill="0.8" rot="R270"/>
+<pad name="4" x="0" y="-3.81" drill="0.8" rot="R270"/>
+<pad name="5" x="2.54" y="-3.81" drill="0.8" rot="R270"/>
+<pad name="6" x="5.08" y="-3.81" drill="0.8" rot="R270"/>
+<pad name="7" x="7.62" y="-3.81" drill="0.8" rot="R270"/>
+<pad name="8" x="7.62" y="3.81" drill="0.8" rot="R270"/>
+<pad name="9" x="5.08" y="3.81" drill="0.8" rot="R270"/>
+<pad name="10" x="2.54" y="3.81" drill="0.8" rot="R270"/>
+<pad name="11" x="0" y="3.81" drill="0.8" rot="R270"/>
+<pad name="12" x="-2.54" y="3.81" drill="0.8" rot="R270"/>
+<pad name="13" x="-5.08" y="3.81" drill="0.8" rot="R270"/>
+<pad name="14" x="-7.62" y="3.81" drill="0.8" rot="R270"/>
+<wire x1="-9.525" y1="3.175" x2="9.525" y2="3.175" width="0.127" layer="49"/>
+<wire x1="9.525" y1="3.175" x2="9.525" y2="-3.175" width="0.127" layer="49"/>
+<wire x1="9.525" y1="-3.175" x2="-9.525" y2="-3.175" width="0.127" layer="49"/>
+<wire x1="-9.525" y1="-3.175" x2="-9.525" y2="-0.635" width="0.127" layer="49"/>
+<wire x1="-9.525" y1="-0.635" x2="-9.525" y2="1.27" width="0.127" layer="49"/>
+<wire x1="-9.525" y1="1.27" x2="-9.525" y2="3.175" width="0.127" layer="49"/>
+<wire x1="-9.525" y1="1.27" x2="-9.525" y2="-0.635" width="0.127" layer="49" curve="-180"/>
+</package>
 </packages>
 <symbols>
 <symbol name="USB-A">
@@ -72,6 +95,21 @@
 <pin name="D-" x="-2.54" y="2.54" length="short"/>
 <pin name="D+" x="-2.54" y="0" length="short"/>
 <pin name="GND" x="-2.54" y="-2.54" length="short"/>
+</symbol>
+<symbol name="OP">
+<pin name="POS" x="-5.08" y="2.54" visible="pad" length="short"/>
+<pin name="NEG" x="-5.08" y="-2.54" visible="pad" length="short"/>
+<pin name="OUT" x="7.62" y="0" visible="pad" length="short" rot="R180"/>
+<wire x1="-2.54" y1="5.08" x2="-2.54" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-5.08" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="-2.54" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-2.032" y1="2.54" x2="-1.016" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-1.524" y1="3.048" x2="-1.524" y2="2.032" width="0.254" layer="94"/>
+<wire x1="-2.032" y1="-2.54" x2="-1.016" y2="-2.54" width="0.254" layer="94"/>
+</symbol>
+<symbol name="SUPPLY">
+<pin name="VCC" x="0" y="5.08" visible="pad" length="short" rot="R270"/>
+<pin name="VSS" x="0" y="-5.08" visible="pad" length="short" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -86,6 +124,38 @@
 <connect gate="G$1" pin="D-" pad="2"/>
 <connect gate="G$1" pin="GND" pad="4"/>
 <connect gate="G$1" pin="VBUS" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="OP-QUAD">
+<gates>
+<gate name="1" symbol="OP" x="-12.7" y="10.16"/>
+<gate name="2" symbol="OP" x="-12.7" y="-5.08"/>
+<gate name="3" symbol="OP" x="7.62" y="10.16"/>
+<gate name="4" symbol="OP" x="7.62" y="-5.08"/>
+<gate name="G$5" symbol="SUPPLY" x="22.86" y="2.54" addlevel="must"/>
+</gates>
+<devices>
+<device name="" package="DIL14">
+<connects>
+<connect gate="1" pin="NEG" pad="2"/>
+<connect gate="1" pin="OUT" pad="1"/>
+<connect gate="1" pin="POS" pad="3"/>
+<connect gate="2" pin="NEG" pad="6"/>
+<connect gate="2" pin="OUT" pad="7"/>
+<connect gate="2" pin="POS" pad="5"/>
+<connect gate="3" pin="NEG" pad="9"/>
+<connect gate="3" pin="OUT" pad="8"/>
+<connect gate="3" pin="POS" pad="10"/>
+<connect gate="4" pin="NEG" pad="13"/>
+<connect gate="4" pin="OUT" pad="14"/>
+<connect gate="4" pin="POS" pad="12"/>
+<connect gate="G$5" pin="VCC" pad="4"/>
+<connect gate="G$5" pin="VSS" pad="11"/>
 </connects>
 <technologies>
 <technology name=""/>
