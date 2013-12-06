@@ -296,10 +296,10 @@
 </deviceset>
 <deviceset name="OP-QUAD">
 <gates>
-<gate name="1" symbol="OP" x="-12.7" y="10.16"/>
-<gate name="2" symbol="OP" x="-12.7" y="-5.08"/>
-<gate name="3" symbol="OP" x="7.62" y="10.16"/>
-<gate name="4" symbol="OP" x="7.62" y="-5.08"/>
+<gate name="1" symbol="OP" x="-12.7" y="10.16" swaplevel="1"/>
+<gate name="2" symbol="OP" x="-12.7" y="-5.08" swaplevel="1"/>
+<gate name="3" symbol="OP" x="7.62" y="10.16" swaplevel="1"/>
+<gate name="4" symbol="OP" x="7.62" y="-5.08" swaplevel="1"/>
 <gate name="SUP" symbol="SUPPLY" x="22.86" y="2.54" addlevel="must"/>
 </gates>
 <devices>
