@@ -1,6 +1,7 @@
 *.log
 *.net
 *.raw
+*.plt
 
 # temporary eagle files
 *.l#*
